@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Lab 1 Population Growth - CS50(Trial Ver 1.0)</title>
+    <link rel="stylesheet" href="back.css">
+</head>
+    <header>
+        <style>
+                     body{
+    margin: 10mm;
+    padding: 0mm;
+    color: rgb(43, 43, 43);
+}
+dl{
+    font-size: 7mm;
+    list-style: square;
+    padding-left: 35mm; 
+    padding-right: 35mm;
+}
+header{
+    background-color: darkred;
+    vertical-align: top;
+    align-self: center;
+    font-size: 5mm;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 10mm;
+    color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.582);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+div{
+    padding-left: 4mm;
+    padding-top: 1mm;
+    padding-right: 4mm;
+    padding-bottom: 0mm;
+    background-color: darkred;
+    padding-block: 0.5mm;
+    font-size: 12mm;
+    color: aliceblue;
+    font-weight: 700;
+}
+a{
+    color:darkred
+}
+p{
+    font-size: 7mm;
+    margin-right: 10mm;
+    margin-left: 10mm ;
+    margin-top: 0mm;
+    margin-bottom: 0mm;
+    padding-left: 10mm;
+     padding-right: 10mm;
+     padding-top: 0mm;   
+     padding-bottom: 0mm; 
+}
+h3{
+    background-color: rgba(255, 223, 134, 0.329);
+    border-radius: 4mm;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 6mm;
+    border-color: rgba(255, 186, 108, 0.253);
+    padding-block: 10mm;
+    text-align: justify;
+    color: rgb(117, 76, 0);
+    padding: 10mm;
+    margin-right: 20mm;
+    border-style: solid;
+    border-width: 0.1mm;
+    margin-left: 20mm;
+    font-weight: 600;
+}
+h1{
+    padding-left: 4mm;
+    padding-top: 1mm;
+    padding-right: 4mm; 
+    padding-bottom: 0mm;
+    background-color: darkred;
+    padding-block: 0.5mm;
+    font-weight: 500;
+    color: aliceblue;
+}
+h2{
+    font-size: 11mm;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     padding-left: 20mm;
+     padding-right: 10mm;
+     padding-top: 10mm;   
+     padding-bottom: 10mm;                   
+}
+mark{
+    color: aliceblue;
+    background-color: darkred;
+}
+span{
+    border-width: 0.1mm;
+    border-style: solid;
+    padding-left: 0mm;
+    padding-right: 0mm;
+    font-weight: 400;
+    border-color: rgba(54, 54, 54, 0.432);
+    padding-bottom: 0mm;
+    text-align: center;
+    padding-block: 2mm;
+    padding-top: 0mm;
+    margin-top: 4mm;
+    padding-right: 1mm;
+    padding-left: 1mm;
+}
+h5{
+    border-color: rgba(0, 0, 0, 0.24);
+    padding: 1mm;
+    background-color: rgba(241, 253, 255, 0.486);
+    margin-left: 0mm;
+    border-width: 0.1mm;
+    border-style: solid;
+    margin-right: 0mm;
+    font-weight: 600;
+    margin-block: 1mm;
+    text-align: left;
+    font-size: 7mm;
+    margin-left: 20mm;
+    padding-block: 5mm;
+    padding-left: 5mm;
+    margin-right: 20mm;
+    padding-right: 5mm;
+    font-family: 'Courier New';
+}
+        </style>
+        <a href="https://cs50.harvard.edu/college/2022/fall/">
+            <div>
+                This was CS50
+            </div>
+            </a>
+            <h1>
+            <a href="https://www.college.harvard.edu/">
+                <mark>Havard College</mark>
+           </a>
+           <a href="https://www.college.harvard.edu/">
+               <mark>(</mark></a><a href="https://www.college.harvard.edu/"><mark>https://www.college.harvard.edu/</mark></a><a href="https://www.college.harvard.edu/"><mark>)</mark></a>
+        </h1>
+        <h4 style="color: rgba(255, 255, 255, 0.486);padding-left: 6mm;font-size: 7mm;font-weight: 500;">Fall 2022</h4>
+    </header>
+<body>
+    <br><br>
+    <p>
+        <h2>Lab 1: Population Growth </h2>
+        <h3>
+            This lab is a practice exercise only, that may be covered in <a style="font-weight: 700;" href="https://cs50.harvard.edu/college/2022/fall/supersections/"><b style=" color: rgb(117, 76, 0);  ">supersection</b></a>. 
+            It is not something that will be turned in.
+        </h3>
+    </p>
+    <p>Determine how long it takes for a population to reach a particular size.</p><br>
+    <p >
+        <h5>$
+                ./
+                population<br>
+             Start Size: 100<br>
+            End Size: 200<br>
+            Years: 9
+           </h5>
+    </p >
+    <h2>Background</h2>
+    <p>Say we have a population of <span>n</span> llamas. Each year, <span>n / 3</span> 
+        new llamas are born, and <span>n / 4</span> llamas pass away.</p>
+    <p>
+        For example, if we were to start with <span>n = 1200</span> llamas, then in the first year, 
+        <span>1200 / 3 = 400</span> would be born and <span>1200 / 4 = 300</span> would pass 
+        away. At the end of that year, we would have <span>1200 + 400 - 300 = 1300</span>
+        llamas.
+    </p>
+    <p>
+        To try another example, if we were to start with <span>n = 1000</span> llamas, at 
+        the end of the year, we would have <span>1000 / 3 = 333.33</span> new llamas. We 
+        can't have a decimal portion of llama, though, so we'll truncate the decimal to get
+        <span>333</span> new llamas born. <span>1000 / 4 = 250</span> llamas will pass away,
+        so we'll end up with a total of <span>1000 + 333 - 250 = 1083</span> llamas at the
+        end of the year.
+    </p>
+    <h2>
+        Getting started
+    </h2>
+    <p>
+        Recall that Visual Studio Code (aka VS Code) is a popular “integrated development
+        environment” (IDE) via which you can write code. So that you don’t have to download,
+        install, and configure your own copy of VS Code, we’ll use a cloud-based version instead that
+        has everything you’ll need pre-installed.
+    </p>
+    <p>
+        Log into <a href="https://code.cs50.io/">code.cs50.io</a>
+        <a href="https://code.cs50.io/">(</a><a href="https://code.cs50.io/">https://code.cs50.io/</a><a href="https://code.cs50.io/">)</a>
+        using your GitHub account. Once your
+        “codespace” loads, you should see that, by default, VS Code is divided into three regions.
+        Toward the top of VS Code is your “text editor”, where you’ll write all of your programs.
+        Toward the bottom of is a “terminal window”, a command-line interface (CLI) that allows you
+        to explore your codespace’s files and directories (aka folders), compile code, and run
+        programs. And on the left is your file “explorer,” a graphical user interface (GUI) via which you
+        can also explore your codespace’s files and directories.
+    </p>
+    <p>
+        Start by clicking inside your terminal window, then execute
+        <span>cd</span> by itself. You should find that its “prompt” resembles the 
+        below.
+    </p><br>
+    <p>
+        <h5>     
+            $
+        </h5><br>
+    </p>
+    <p>
+        Click inside of that terminal window and then type
+    </p><br>
+    <p>
+        <h5>     
+        mkdir population
+        </h5><br>
+    </p>
+    <p>followed by Enter in order to make a directory called
+        <span>population</span>in your codespace. Take care not
+         to overlook the space between <span>mkdir</span> and 
+         <span>population</span> or any other character for that 
+         matter!
+    </p>
+    <p>
+        Here on out, to execute (i.e., run) a command means to type it into a terminal window and
+        then hit Enter. Commands are case-sensitive, so be sure not to type in uppercase when you
+        mean lowercase or vice versa.
+    </p><br>
+    <p>Now execute</p><br>
+    <p>
+        <h5>     
+            cd population
+        </h5><br>
+    </p>
+    <p>
+        to move yourself into (i.e., open) that directory. Your prompt should now resemble the below.
+    </p><br>
+    <p>
+        <h5>     
+        $ /population
+        </h5>
+    </p><br>
+    <p>
+        Click inside of that terminal window and then type
+    </p><br>
+    <p>
+        <h5>     
+            wget https:// cdn.cs50.net /2022 /fall/ labs /1 /population.c
+        </h5>
+    </p><br>
+    <p>
+        followed by Enter in order to download a template file called 
+        <span>population.c</span> in your codespace.
+        Take care not to overlook the space between
+        <span>wget</span> and the following URL, or
+        any other character for that matter! If all was successful,
+        you should execute
+    </p><br>
+    <p>
+        <h5>     
+            ls
+        </h5>
+    </p><br>
+    <p>
+        and see a file named <span>population.c</span>. Executing
+        <span>code population.c</span> should open the file
+       where you will type your code for this lab. If not,retrace
+     your steps and see if you can determine where you  went wrong!
+    </p>
+ <h2>
+   Implementation Details
+ </h2>
+ <p>
+    Complete the implementation of <span>population.c</span>, such that it calculates the number of years
+    required for the population to grow from the start size to the end size.
+ </p><br>
+    <p>
+        <dl >
+               <p>
+                <dt>
+                    <li>Your program should first prompt the user for a starting population size.</li>
+                </dt><br>
+                 <dd>
+                     <li>
+                        If the user enters a number less than 9 (the minimum allowed population size),
+                     the user should be re-prompted to enter a starting population size until they
+                     enter a number that is greater than or equal to 9. (If we start with fewer than 9
+                     llamas, the population of llamas will quickly become stagnant!)
+                     </li>
+                 </dd><br>
+                <dt>
+                    <li>Your program should then prompt the user for an ending population size.</li>
+                </dt><br>
+             <dd>
+                    <li>
+                     If the user enters a number less than the starting population size, the user
+                     should be re-prompted to enter an ending population size until they enter a
+                     number that is greater than or equal to the starting population size. (After all, we
+                     want the population of llamas to grow!)
+                    </li>
+                
+             </dd><br>
+             <dt>
+                <li>
+                    Your program should then calculate the (integer) number of years required for the
+                    population to reach at least the size of the end value.
+                </li>
+             </dt><br>
+             <dt>
+                <li>
+                    Finally, your program should print the number of years required for the llama
+                    population to reach that end size, as by printing to the terminal <span>Years: n</span> ,
+                     where n
+                    is the number of years.
+                </li>
+             </dt>
+               </p>
+        </dl>
+    </p>
+    <h2>Hint</h2>
+    <p><dl>
+            <dt><li>
+                <b style="font-weight: 400;">
+                    If you want to repeatedly re-prompt the user for the value of a variable until some
+                    condition is met, you might want to use a <span>do ... while</span> loop. For example, recall
+                    the following code from lecture, which prompts the user repeatedly until they enter a
+                    positive integer.<br></b><br>
+             <p>
+                 <h5 style="margin-left: 0mm; margin-right: 0mm;"><b style="color: rgb(207, 0, 69); font-weight: 600;">int </b>n;<br>
+                     <b style="color: rgb(32, 133, 1); font-weight: 600;">do</b><br>
+                     {<br><b style="font-weight: 600;padding-left: 16mm;">n</b> <b style="color: gray; font-weight: 600;">=</b> get_int(<b style="color: rgb(207, 0, 0); font-weight: 600;">"Positive Integer: "</b>);<br>
+                     }<br><b style="color: green; font-weight: 600;">while</b> (n <b style="color: gray;font-weight: 600; "> < 1</b>)
+                 </h5>
+             </p><br>
+                 How might you adapt this code to ensure a start size of at least 9, and an end size of at
+     least the start size?    
+     </li></dt>
+     </dl><br>
+     <dl>
+         <dt><li>
+             To declare a new variable, be sure to specify its data type, a name for the variable, and
+             (optionally) what its initial value should be.
+         </li></dt><br>
+         <dd><li>
+                 For example, you might want to create a variable to keep track of how many
+                 years have passed
+        </li></dd><br>
+             <dt><li>
+                 To calculate how many years it will take for the population to reach the end size,
+                 another loop might be helpful! Inside the loop, you’ll likely want to update the
+                 population size according to the formula in the Background, and update the number of
+                 years that have passed.
+             </li></dt><br>
+             <dt><br><li>
+                 <b style="font-weight: 400;">To print an integer <span>n</span> to the terminal, recall that you can use a line of code like<br></b><br>
+                 <h5 style="margin-left: 0mm; margin-right: 0mm;">printf(<b style="color: red;font-weight:600 ">The number is 
+                     %i</b><b style="color: rgb(182, 103, 0); font-weight:600">\n</b><b style="color: red; font-weight: 600;">"</b>, );</h5><br>
+                    <b style="font-weight: 400;"> to specify that the variable n should fill in for the placeholder <span>%i</span> .<br></b><br>
+            </li></dt>
+    </dl></p>
+    <h2>
+        How To Test Your Code
+    </h2>
+    <p>Your program should behave per these examples below.</p><br>
+    <p><h5>
+        $ 
+        ./
+        population<br>
+        Start size: 1200<br>
+        End size: 1300<br>
+        Years: 1
+    </h5><br>
+    <h5>
+        $ 
+        ./
+        population
+        Start size: -5<br>
+        Start size: 3<br>
+        Start size: 9<br>
+        End size: 5<br>
+        End size: 18<br>
+        Years: 8
+    </h5><br>
+    <h5>
+        $ 
+        ./
+        population
+        Start size: 20<br>
+        End size: 1<br>
+        End size: 10<br>
+        End size: 100<br>
+        Years: 20
+    </h5><br>
+    <h5>
+        $ 
+        ./
+        population
+        Start size: 100<br>
+        End size: 1000000<br>
+        Years: 115
+    </h5><br> 
+    <p>Execute the below to evaluate the style of your code using  <span>style50</span> .</p><br>
+    <h5>style50 population
+        .c</h5>
+</p><br>
+<p>
+    <h2>How To Submit </h2>
+    <p>This lab is an in-class or at-home practice exercise only, and is not submitted to the course!</p>
+</p>
+</body></html>     
