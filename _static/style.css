@@ -1,0 +1,57 @@
+body{
+    margin: auto;
+    shape-margin: initial;
+    margin: 7% 7% 7% 7%;
+    align-items: baseline;
+}
+.container{
+    padding: inherit;
+    align-content: center;
+    vertical-align: middle;
+    background-color: white;
+    color: rgb(2, 2, 49);
+    text-align: center;
+    text-justify: auto;
+    font-family: monospace;
+    font-weight: 100;
+    font-size: 105%;
+}
+.textbox{
+    border-radius: 3mm;
+    background-color: rgba(153, 151, 151, 0.356);
+    color: black;
+    text-align: justify;
+    border-color: transparent;
+    padding: 1% 5% 1% 5%;
+}
+a{
+    color: dodgerblue;
+}
+.footer{
+    color: rgba(128, 128, 128, 0.959);
+}
+.google-sign-in{
+    font-weight: 1000;
+    background-color: transparent;
+    border-color: rgba(156, 156, 156, 0.212);
+    border-width: 2px;
+    border-radius: 3mm;
+    padding: 1% 5% 1% 5%;
+    text-align: center;
+    min-width: fit-content;
+}
+.enter-email{
+    background-color: turquoise;
+    color: transparent;
+    border-radius: 2mm;
+    padding: 1%;
+    border-color: rgba(98, 177, 187, 0.562);
+    border-width: 1.5px;
+}
+.enter-email > .svg{
+    block-size: 18px;
+    background-color: inherit;
+}
+header > h1{
+    font-size: 600%;
+}
