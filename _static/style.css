@@ -3,16 +3,15 @@
 .container{
     place-content: center;
     vertical-align: middle;
-    height: 100vh;
-    width: 100vw;
     text-align: center;
     align-items: center;
     display: flexbox;
     align-content: center;
 }
 .mid-box{
-    width: 50%;
-    margin: auto;
+    width: 40%;
+    margin-right: auto;
+    margin-left: auto;
 }
 .charbox{
     width: 10%;
@@ -29,8 +28,4 @@
 .roundedge{
     margin: 3px;
     border-radius: 3mm;
-}
-body{
-    font-style: normal;
-    font-family: 'Courier New', Courier, monospace;
 }
